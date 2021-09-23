@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-10">
+        <h2>
+            EDITAR PEDIDO <%= @pedido.codigo %> 📦
+        </h2>    
+    </div>
+    <div class="col-2 text-end">
+        <%= link_to "Volver", admin_pedido_path(@pedido), class: 'btn btn-secondary' %>
+    </div>
+</div>
+
+<div class="row mt-3 justify-content-end">
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h6>
+                    <strong>
+                        TOTAL:
+                    </strong>
+                </h6>
+                <p>
+                    <!-- TODO: AGREAR TOTAL CALCULADO -->
+                    <%= @pedido.total %> 💵💵
+                </p>
+            </div>
+        </div>
+    </div> <!-- TOTAL 📎 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <%= render 'formulario_datos_envio', datos_pedido: @datos_pedido, destinos: @destinos, estados: @estados  %>
+    </div>
+    <div class="col-lg-8">
+        <%= render 'listar_productos', productos: @productos, pedido: @pedido %>
+    </div>
+</div>

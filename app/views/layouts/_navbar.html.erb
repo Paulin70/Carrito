@@ -1,0 +1,54 @@
+<nav id="navegacion" class="navbar navbar-expand-lg fixed-top bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">
+            <i class="bi bi-joystick"></i>
+            Game Store
+        </a>
+        <button class="navbar-toggler boton-navbar-hamburguesa" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon icono-navbar-hamburguesa"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <%= link_to admin_pedidos_path, class: 'nav-link'  do %>
+                        <i class="bi bi-speedometer"></i>
+                        Pedidos
+                    <% end %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to admin_productos_path, class: 'nav-link'  do %>
+                        <i class="bi bi-archive-fill"></i>
+                        Productos
+                    <% end %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to admin_categorias_path, class: 'nav-link'  do %>                    
+                        <i class="bi bi-bookmark-fill"></i>
+                        Categorías
+                    <% end %>
+                </li>
+
+                <li class="nav-item">
+                    <%= link_to admin_destinos_path, class: 'nav-link'  do %>
+                        <i class="bi bi-compass-fill"></i>
+                        Destinos
+                    <% end %>
+                </li>
+
+                <li class="nav-item">
+                    <% if usuario_ha_iniciado_sesion? %>
+
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <%= @usuario_actual.nombre %>
+                        </a><!-- Opción para mostrar el formulario ⏬ -->
+                        <div class="dropdown-menu bg-secondary p-3" style="border: none;">
+                            <%= link_to 'Cerrar sesión', cerrar_sesion_path, class: 'btn btn-warning', method: :delete, data: { confirm: 'está seguro de cerrar sesión?'} %>
+                        </div>
+
+                    <% end %>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>

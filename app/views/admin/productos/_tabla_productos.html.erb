@@ -1,0 +1,33 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% productos.each do |producto| %>
+        <tr class="animate__animated animate__slideInRight">
+            <td class="col-2">
+                <% if producto.imagenes.attached? %>
+                    <%= link_to admin_producto_path(producto) do %>
+                        <%= image_tag producto.imagenes.first, style: 'width: 100%' %>
+                    <% end %>
+                <% else %>
+                    No hay fotos registradas
+                <% end %>
+            </td>
+
+            <td>
+                <%= link_to producto.nombre, admin_producto_path(producto) %>
+            </td>
+            <td><%= producto.precio %></td>
+            <td><%= producto.cantidad %></td>
+            <td><%= producto.categoria.categoria %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
